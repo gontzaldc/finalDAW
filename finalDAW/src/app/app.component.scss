@@ -1,0 +1,14 @@
+ion-toolbar{
+    padding-left: 10%;
+}
+ion-title{
+    --width: fit-content;
+    display: inline-block;
+    margin-top: 1%;
+    margin-right: 10%;
+}
+ion-button{
+    --width: fit-content;
+    display: inline-block;
+    margin-top: -1%;
+}

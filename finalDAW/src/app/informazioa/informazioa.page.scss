@@ -1,0 +1,23 @@
+#rosa{
+    --width: 100%;
+    height: 30%;
+    background-color: pink;
+    padding: 2%;
+}
+
+img {
+    display: inline-block;
+    border-radius: 50%;
+    bottom: calc(-1*(80px + 4px));
+    border: 8px solid #585858da;
+    background-color: #f7f3f3;
+    width: 10%;
+}
+.imagen{
+    margin-right: 2%;
+}
+
+#texto{
+    display: inline-block;
+    
+}
