@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { IonSlides} from '@ionic/angular';
+
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -12,13 +14,18 @@ import { RestService } from '../services/rest.service';
 })
 export class HomePage {
 
+  @ViewChild('mySlider', { static: true })  slides: IonSlides;
   users:any
+      swipeNext(){
+        this.slides.slideNext();
+      }
+      swipePrev(){
+        this.slides.slidePrev();
+      }
+  constructor(private menu: MenuController, public restService: RestService) {
 
-  films: Observable<any>;
-  constructor(private menu: MenuController,public restService: RestService) {
     this.getUsers()
   }
-
 
   getUsers() {
     this.restService.getUsers()

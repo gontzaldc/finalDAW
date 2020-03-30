@@ -33,3 +33,26 @@ ion-content ion-toolbar {
 .my-custom-menu {
   --width: 500px;
 }
+
+
+#imagenes1{
+  width: 100%;
+}
+#imagenes2{
+  width: 50%;
+}
+.backBtn{
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  font-size: 25px;
+  z-index: 2;
+}
+
+.nextBtn{
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  font-size: 25px;
+  z-index: 2;
+}
