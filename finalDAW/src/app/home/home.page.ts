@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { RestService } from '../services/rest.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,7 +12,20 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menu: MenuController) {}
+  users:any
 
+  films: Observable<any>;
+  constructor(private menu: MenuController,public restService: RestService) {
+    this.getUsers()
+  }
+
+
+  getUsers() {
+    this.restService.getUsers()
+    .then(data => {
+    this.users = data;
+    console.log(this.users);
+    });
+    }
   
 }

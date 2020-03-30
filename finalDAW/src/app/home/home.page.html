@@ -1,2 +1,11 @@
 
 
+<ion-content>
+    <ion-list inset>
+    <ion-item *ngFor="let user of users">
+       <h1>{{user.id}}</h1>
+       <h2>{{user.first_name}} {{user.last_name}}</h2>
+       <p>{{user.email}}</p>
+    </ion-item>
+    </ion-list>
+    </ion-content>
