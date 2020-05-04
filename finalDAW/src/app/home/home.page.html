@@ -41,4 +41,18 @@
        <p>{{user.email}}</p>
     </ion-item>
     </ion-list>
+
+
+    <form >
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" (ngModel)="user.name" name="name" id="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input type="text" (ngModel)="user.email" name="email" id="email"></ion-input>
+      </ion-item>
+      <button (click)="saveUser()" ion-button type="submit" block>Add User</button>
+    </form>
+
 </ion-content>

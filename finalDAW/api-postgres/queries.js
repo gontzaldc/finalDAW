@@ -30,14 +30,28 @@ const getUsers = (request, response) => {
 
   const createUser = (request, response) => {
     const { name, email } = request.body
-  
-    pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(201).send('User added with ID:',{result,insertId})
+    console.log(name,email)
+    pool.query('INSERT INTO users(name, email) VALUES($1, $2)', [name, email], (error, results) => {
+     
+      response.status(201).send(`User added `)
     })
   }
+
+  // function createUser(req, res, next) {
+  //   req.body.age = parseInt(req.body.age);
+  //   db.none('insert into users(name, email) values(${name}, ${email}',
+  //     req.body)
+  //     .then(function () {
+  //       res.status(200)
+  //         .json({
+  //           status: 'success',
+  //           message: 'Inserted one user'
+  //         });
+  //     })
+  //     .catch(function (err) {
+  //       return next(err);
+  //     });
+  // }
 
 
   const updateUser = (request, response) => {

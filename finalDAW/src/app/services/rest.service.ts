@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -20,5 +20,22 @@ export class RestService {
     console.log(err);
     });
     });
+    }
+
+    saveUser(data) {
+
+      return new Promise((resolve, reject) => {
+        console.log("parte 1")
+        console.log(data)
+        console.log(JSON.stringify(data))
+        this.http.post(this.apiUrl+'/users', data)
+          .subscribe(res => {
+            
+        console.log("parte 2")
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+      });
     }
     }

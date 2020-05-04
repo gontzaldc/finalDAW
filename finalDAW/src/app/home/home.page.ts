@@ -16,6 +16,8 @@ export class HomePage {
 
   @ViewChild('mySlider', { static: true })  slides: IonSlides;
   users:any
+  user = { name: "", email: ""}
+
       swipeNext(){
         this.slides.slideNext();
       }
@@ -33,6 +35,19 @@ export class HomePage {
     this.users = data;
     console.log(this.users);
     });
+    }
+
+    saveUser() {
+      this.user.name=((document.getElementById("name")as HTMLInputElement).value)
+      
+      this.user.email=((document.getElementById("email")as HTMLInputElement).value)
+      this.restService.saveUser(this.user).then((result) => {
+        console.log("home.page")
+        console.log(result);
+      }, (err) => {
+        console.log("home.page error")
+        console.log(err);
+      });
     }
   
 }
