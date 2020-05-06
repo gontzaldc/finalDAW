@@ -7,43 +7,57 @@
 </ion-header>
 
 
+
+<ion-content color="dark">
+  <div class="contenido">
+    <div class="carrusel">
+      <ion-slides #mySlider [options]="{loop: true, autoplay:true, speed: 3000}">
+        <ion-slide>
+          <img id="imagenes1" src="https://clinicaanoeta.com/wp-content/uploads/2019/10/color-lengua-perros-700x350.png"
+            alt="">
+        </ion-slide>
+        <ion-slide>
+          <img id="imagenes1" src="https://www.mundoperros.es/wp-content/uploads/2016/06/cuidador-de-mascotas.jpg"
+            alt="">
+        </ion-slide>
+        <ion-slide>
+          <img id="imagenes2"
+            src="https://ar.zoetis.com/_locale-assets/mcm-portal-assets/publishingimages/especie/caninos_perro_img.png"
+            alt="">
+        </ion-slide>
+      </ion-slides>
+
+      <button (click)="swipePrev()" class="backBtn noboton">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <button (click)="swipeNext()" class="nextBtn noboton">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+
     
-<ion-content>
-  <ion-slides #mySlider [options]="{loop: true, autoplay:true, speed: 3000}">
-    <ion-slide>
-      <img id="imagenes1" src="https://clinicaanoeta.com/wp-content/uploads/2019/10/color-lengua-perros-700x350.png"
-        alt="">
-    </ion-slide>
-    <ion-slide>
-      <img id="imagenes2"
-        src="https://ar.zoetis.com/_locale-assets/mcm-portal-assets/publishingimages/especie/caninos_perro_img.png"
-        alt="">
-    </ion-slide>
-    <ion-slide>
-      <img id="imagenes2"
-        src="https://ar.zoetis.com/_locale-assets/mcm-portal-assets/publishingimages/especie/caninos_perro_img.png"
-        alt="">
-    </ion-slide>
-  </ion-slides>
-  
-  <button (click)="swipePrev()" class="backBtn"> 
-    <ion-icon name="chevron-back-outline"></ion-icon>
-  </button>
-  <button (click)="swipeNext()" class="nextBtn"> 
-    <ion-icon name="chevron-forward-outline"></ion-icon>
-  </button>
-
-
-  <ion-list inset>
-    <ion-item *ngFor="let user of users">
-       <h1>{{user.id}}</h1>
-       <h2>{{user.first_name}} {{user.last_name}}</h2>
-       <p>{{user.email}}</p>
-    </ion-item>
+    <ion-list inset class="derecha">
+      <h1>Usuarios mas activos</h1>
+      <ion-item *ngFor="let user of users">
+        <h1>{{user.id}}</h1>
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <p>{{user.email}}</p>
+      </ion-item>
     </ion-list>
 
+    <form>
+      <a>Pequeña descripcion del trabajo  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+    </form>
 
-    <form >
+    <ion-list inset>
+      <ion-item *ngFor="let user of users">
+        <h1>{{user.id}}</h1>
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <p>{{user.email}}</p>
+      </ion-item>
+    </ion-list>
+
+    <form>
       <ion-item>
         <ion-label>Name</ion-label>
         <ion-input type="text" (ngModel)="user.name" name="name" id="name"></ion-input>
@@ -54,5 +68,5 @@
       </ion-item>
       <button (click)="saveUser()" ion-button type="submit" block>Add User</button>
     </form>
-
+  </div>
 </ion-content>
