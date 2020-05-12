@@ -1,5 +1,5 @@
 ion-content{
-  text-decoration-color: #5bd835;
+  color: #5bd835;
 }
 #container {
   text-align: center;
@@ -72,12 +72,23 @@ ion-content ion-toolbar {
   background-color: transparent;
 }
 
-.derecha{
+ion-list{
   width: 15%;
   display: inline-block;
   float: right;
+  background-color: #33373d;
 }
 
-// ion-list, h1, h2, p, ion-item, .input-wrapper{
-//   background-color: #8c8c8c!important;
-// }
+ion-list>ion-item>h1{
+  background-color: #33373d;
+}
+
+.ion-wrapper{
+  background-color: transparent!important;
+}
+
+.usuario{
+  border: 2px solid white;
+  background-color: #5bd835;
+  padding: 1%;
+}
