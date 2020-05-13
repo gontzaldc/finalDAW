@@ -1,18 +1,35 @@
 <ion-app>
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title [routerLink]="['/home']">
+      <ion-title class="titulo" [routerLink]="['/home']">
         Oinatz
       </ion-title>
-      <ion-button color="dark" [routerLink]="['/menu-fotos']">
-        <ion-icon color="primary" name="image-outline"></ion-icon>
-      </ion-button>
-      <ion-button color="dark" [routerLink]="['/informazioa']">
-        <ion-icon color="primary" name="information-circle-outline"></ion-icon>
-      </ion-button>
-      <ion-button color="dark" [routerLink]="['/home']">
-        <ion-icon color="primary" name="log-out-outline"></ion-icon>
-      </ion-button>
+      <div class="right">
+        <ion-title class="menu">
+          |
+        </ion-title>
+        <ion-title class="menu" [routerLink]="['/menu-fotos']">
+          Galeria
+        </ion-title>
+        <ion-title class="menu">
+          |
+        </ion-title>
+        <ion-title class="menu" [routerLink]="['/informazioa']">
+          Información
+        </ion-title>
+        <ion-title class="menu">
+          |
+        </ion-title>
+        <ion-title class="menu" [routerLink]="['/noticias']">
+          Noticias
+        </ion-title>
+        <ion-title class="menu">
+          |
+        </ion-title>
+      </div>
+        <ion-button color="dark" [routerLink]="['/home']">
+          <ion-icon color="primary" name="log-out-outline"></ion-icon>
+        </ion-button>
     </ion-toolbar>
   </ion-header>
 

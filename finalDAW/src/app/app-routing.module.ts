@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'informazioa',
     loadChildren: () => import('./informazioa/informazioa.module').then( m => m.InformazioaPageModule)
   },
+  {
+    path: 'noticias',
+    loadChildren: () => import('./noticias/noticias.module').then( m => m.NoticiasPageModule)
+  },
 
 
 ];

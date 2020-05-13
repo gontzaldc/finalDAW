@@ -5,10 +5,19 @@ ion-title{
     --width: fit-content;
     display: inline-block;
     margin-top: 1%;
-    margin-right: 70%;
 }
+
 ion-button{
     --width: fit-content;
     display: inline-block;
     margin-top: -1%;
+}
+
+.menu{
+    font-size: medium;
+}
+
+.right{
+    display: inline-block;
+    margin-left: 47%;
 }

@@ -35,21 +35,20 @@
       </button>
     </div>
 
-    
     <ion-list inset class="derecha">
-      <h1>Usuarios mas activos</h1>
-      <ion-item *ngFor="let user of users">
-        <h1>{{user.id}}</h1>
+      <h1>Anuncios</h1>
+      <div class="anuncios" *ngFor="let user of users">
+        <!-- <h1>{{user.id}}</h1> -->
         <h2>{{user.first_name}} {{user.last_name}}</h2>
         <p>{{user.email}}</p>
-      </ion-item>
+      </div>
     </ion-list>
 
     <form>
       <a>Pequeña descripcion del trabajo  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
     </form>
 
-    <ion-list inset>
+    <!-- <ion-list inset>
       <ion-item *ngFor="let user of users">
         <h1>{{user.id}}</h1>
         <h2>{{user.first_name}} {{user.last_name}}</h2>
@@ -67,6 +66,6 @@
         <ion-input type="text" (ngModel)="user.email" name="email" id="email"></ion-input>
       </ion-item>
       <button class="usuario" (click)="saveUser()" ion-button type="submit" block>Add User</button>
-    </form>
+    </form> -->
   </div>
 </ion-content>
