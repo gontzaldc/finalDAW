@@ -26,7 +26,6 @@ export class HomePage {
       }
   constructor(private menu: MenuController, public restService: RestService) {
 
-    this.getUsers()
   }
 
   getUsers() {
@@ -37,10 +36,12 @@ export class HomePage {
     });
     }
 
+  
+
     saveUser() {
       this.user.name=((document.getElementById("name")as HTMLInputElement).value)
-      
       this.user.email=((document.getElementById("email")as HTMLInputElement).value)
+
       this.restService.saveUser(this.user).then((result) => {
         console.log("home.page")
         console.log(result);
