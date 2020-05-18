@@ -31,7 +31,6 @@ export class PostPage implements OnInit {
     }
 
     getCommentById() {
-      console.log("funciona")
       this.restService.getCommentsById(this.id)
       .then(data => {
       this.comments = data;
@@ -50,5 +49,13 @@ export class PostPage implements OnInit {
     });
       }
 
+      deletePost()
+      {
+        this.restService.deletePost(this.id)
+        .then(data => {
+          console.log("succesfdully deleted") 
+        });
+
+      }
 
 }
