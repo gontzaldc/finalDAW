@@ -6,3 +6,23 @@ ion-item, .container, h1{
 h1, .container, ion-button{
     margin-top:2%;
 }
+@media only screen and (max-width: 749px){
+    .contenido{
+      margin-top:2%
+    }
+  }
+  @media only screen and (max-width: 639px){
+    .contenido{
+      margin-top:6%
+    }
+  }
+  @media only screen and (max-width: 575px){
+    .contenido{
+      margin-top:8%
+    }
+  }
+  @media only screen and (max-width: 411px){
+    .contenido{
+      margin-top:9%
+    }
+  }

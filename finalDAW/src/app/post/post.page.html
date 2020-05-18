@@ -6,11 +6,11 @@
 
 <ion-content color="dark">
   <div class="contenido">
-    <div class="galeria" >
+    <div class="galeria">
       <img src="https://www.wikipets.es/wp-content/uploads/sites/default/files/library/pastor-vasco-320x240.jpg"
         alt=""><br>
-        <h1>Titulo</h1>
-        <p>el texto<br>hola<br>prueba</p>
+      <h1>Titulo</h1>
+      <p>el texto<br>hola<br>prueba</p>
     </div>
 
     <form>
@@ -18,15 +18,15 @@
         <ion-label>idUsuario</ion-label>
         <ion-input type="text"  name="id" id="idUsuario"></ion-input>
       </ion-item> -->
-      
+
+      <h1>Comment</h1>
       <ion-item>
-        <ion-label>Comment</ion-label>
-        <ion-textarea type="text"  name="comentario" id="comentario" auto-grow></ion-textarea>
+        <ion-textarea type="text" name="comentario" id="comentario" auto-grow></ion-textarea>
       </ion-item>
       <ion-button class="usuario" (click)="createComment()" ion-button type="submit" block>Add New Comment</ion-button>
-    </form> 
+    </form>
 
-    <div  *ngFor="let comentario of comments">
+    <div *ngFor="let comentario of comments">
       <b>{{comentario.idUsuario}}</b>
       <p>{{comentario.comentario}}</p>
     </div>
