@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>newPost</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <form *ngFor="let postId of post">
+    <h1>Titulo:</h1>
+    <ion-item class="titulo">
+      
+      <ion-input  value="{{postId.titulo}}"type="text"  name="titulo" id="titulo"></ion-input>
+    </ion-item>
+    <h1>Descripción:</h1>
+    <ion-item class="textarea">
+      
+      <ion-textarea value="{{postId.contenido}}"  name="content" id="content" auto-grow></ion-textarea>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>Video</ion-label>
+      <ion-input type="text" (ngModel)="post.video" name="video" id="video"></ion-input>
+    </ion-item> -->
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3" >
+                             
+              <div class="form-group">
+                  <ion-button class="btn btn-primary"  (click)="updatePost()">Submit</ion-button>
+              </div>
+          </div>
+      </div>
+  </div>
+    <!-- <button class="usuario"  ion-button type="submit" block>Add New Post</button> -->
+  </form> 
+</ion-content>

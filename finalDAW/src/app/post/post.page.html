@@ -6,18 +6,21 @@
 
 <ion-content color="dark">
   <div class="contenido">
-    <div class="galeria">
-      <img src="https://www.wikipets.es/wp-content/uploads/sites/default/files/library/pastor-vasco-320x240.jpg"
-        alt=""><br>
-      <h1>Titulo</h1>
-      <p>el texto<br>hola<br>prueba</p>
+    <div class="galeria" *ngFor="let postId of post">
+      <img src="{{postId.video}}"
+      alt="Base64 encoded image"><br>
+        <h1>{{postId.titulo}}</h1>
+        <p>{{postId.contenido}}</p>
+        
+      <ion-button (click)="deletePost()">Delete</ion-button>
+      <ion-button [routerLink]="['/update-post', postId.id]">Update</ion-button>
     </div>
 
     <form>
-      <!-- <ion-item>
+      <ion-item>
         <ion-label>idUsuario</ion-label>
         <ion-input type="text"  name="id" id="idUsuario"></ion-input>
-      </ion-item> -->
+      </ion-item>
 
       <h1>Comment</h1>
       <ion-item>

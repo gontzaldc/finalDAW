@@ -29,15 +29,14 @@ app.get('/', (request, response) => {
 
 app.get('/users', db.getUsers)
 app.get('/post', db.getPost)
-app.get('/comment', db.getComments)
 app.get('/users/:id', db.getUserById)
 app.get('/post/:id', db.getPostById)
-app.get('/comment', db.getCommentsbyId)
+app.get('/comment/:id', db.getCommentsbyId)
 app.post('/users', db.createUser)
 app.post('/post', db.createPost)
 app.post('/comment', db.createComment)
-app.put('/users/:id', db.updateUser)
-app.delete('/users/:id', db.deleteUser)
+app.put('/post/:id', db.updatePost)
+app.delete('/post/:id', db.deletePost)
 
 app.listen(port, () => {
   console.log('App running on port',{port})

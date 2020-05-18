@@ -9,7 +9,7 @@ import { RestService } from '../services/rest.service';
   styleUrls: ['./post.page.scss'],
 })
 export class PostPage implements OnInit {
-  post: {} 
+  post: any 
   id: string
   comments:any
   comment = { idUsuario: "", idPost: "", comentario:""}
@@ -26,11 +26,11 @@ export class PostPage implements OnInit {
     this.restService.getPostById(this.id)
     .then(data => {
     this.post = data;
+    console.log(this.post)
     });
     }
 
     getCommentById() {
-      console.log("funciona")
       this.restService.getCommentsById(this.id)
       .then(data => {
       this.comments = data;
@@ -49,5 +49,13 @@ export class PostPage implements OnInit {
     });
       }
 
+      deletePost()
+      {
+        this.restService.deletePost(this.id)
+        .then(data => {
+          console.log("succesfdully deleted") 
+        });
+
+      }
 
 }

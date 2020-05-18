@@ -20,10 +20,16 @@ const routes: Routes = [
     path: 'new-post',
     loadChildren: () => import('./new-post/new-post.module').then( m => m.NewPostPageModule)
   },
+
   {
     path: 'post/:id',
     loadChildren: () => import('./post/post.module').then( m => m.PostPageModule)
   },
+  {
+    path: 'update-post/:id',
+    loadChildren: () => import('./update-post/update-post.module').then( m => m.UpdatePostPageModule)
+  },
+
 
 
 ];
