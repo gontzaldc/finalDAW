@@ -4,15 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
   <form>
-    <ion-item>
-      <ion-label>Title</ion-label>
+    <h1>Titulo:</h1>
+    <ion-item class="titulo">
       <ion-input type="text" (ngModel)="post.titulo" name="titulo" id="titulo"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Content</ion-label>
-      <ion-input type="text" (ngModel)="post.contenido" name="content" id="content"></ion-input>
+    <h1>Descripción:</h1>
+    <ion-item class="textarea">
+      <ion-textarea (ngModel)="post.contenido" name="content" id="content" auto-grow></ion-textarea>
     </ion-item>
     <!-- <ion-item>
       <ion-label>Video</ion-label>
@@ -37,11 +37,11 @@
               </div>
                
               <div class="form-group">
-                  <button class="btn btn-primary"  (click)="onSubmit()">Submit</button>
+                  <ion-button class="btn btn-primary"  (click)="onSubmit()">Submit</ion-button>
               </div>
           </div>
       </div>
   </div>
-    <button class="usuario"  ion-button type="submit" block>Add New Post</button>
+    <!-- <button class="usuario"  ion-button type="submit" block>Add New Post</button> -->
   </form> 
 </ion-content>

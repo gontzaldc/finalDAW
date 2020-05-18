@@ -9,19 +9,21 @@
     <div class="galeria" >
       <img src="https://www.wikipets.es/wp-content/uploads/sites/default/files/library/pastor-vasco-320x240.jpg"
         alt=""><br>
+        <h1>Titulo</h1>
+        <p>el texto<br>hola<br>prueba</p>
     </div>
 
     <form>
-      <ion-item>
+      <!-- <ion-item>
         <ion-label>idUsuario</ion-label>
         <ion-input type="text"  name="id" id="idUsuario"></ion-input>
-      </ion-item>
+      </ion-item> -->
       
       <ion-item>
         <ion-label>Comment</ion-label>
-        <ion-input type="text"  name="comentario" id="comentario"></ion-input>
+        <ion-textarea type="text"  name="comentario" id="comentario" auto-grow></ion-textarea>
       </ion-item>
-      <button class="usuario" (click)="createComment()" ion-button type="submit" block>Add New Comment</button>
+      <ion-button class="usuario" (click)="createComment()" ion-button type="submit" block>Add New Comment</ion-button>
     </form> 
 
     <div  *ngFor="let comentario of comments">
