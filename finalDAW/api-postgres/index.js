@@ -29,10 +29,9 @@ app.get('/', (request, response) => {
 
 app.get('/users', db.getUsers)
 app.get('/post', db.getPost)
-app.get('/comment', db.getComments)
 app.get('/users/:id', db.getUserById)
 app.get('/post/:id', db.getPostById)
-app.get('/comment', db.getCommentsbyId)
+app.get('/comment/:id', db.getCommentsbyId)
 app.post('/users', db.createUser)
 app.post('/post', db.createPost)
 app.post('/comment', db.createComment)

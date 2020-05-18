@@ -9,7 +9,7 @@ import { RestService } from '../services/rest.service';
   styleUrls: ['./post.page.scss'],
 })
 export class PostPage implements OnInit {
-  post: {} 
+  post: any 
   id: string
   comments:any
   comment = { idUsuario: "", idPost: "", comentario:""}
@@ -26,6 +26,7 @@ export class PostPage implements OnInit {
     this.restService.getPostById(this.id)
     .then(data => {
     this.post = data;
+    console.log(this.post)
     });
     }
 

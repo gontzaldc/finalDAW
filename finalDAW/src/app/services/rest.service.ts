@@ -95,7 +95,7 @@ export class RestService {
     getCommentsById(id) {
         
       return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/comment').subscribe(data => {
+      this.http.get(this.apiUrl+'/comment/'+id).subscribe(data => {
       resolve(data);}, 
       err => {
       console.log(err);

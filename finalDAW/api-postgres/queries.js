@@ -27,15 +27,7 @@ const getUsers = (request, response) => {
       response.status(200).json(results.rows)
     })
   }
-  
-  const getComments = (request, response) => {
-    pool.query('SELECT * FROM comentarios', (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(results.rows)
-    })
-  }
+
 
   const getUserById = (request, response) => {
     const id = parseInt(request.params.id)
@@ -151,6 +143,5 @@ const getUsers = (request, response) => {
     createPost,
     getPostById,
     createComment,
-    getComments,
     getCommentsbyId,
   }
