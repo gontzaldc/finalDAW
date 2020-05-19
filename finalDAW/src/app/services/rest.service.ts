@@ -123,4 +123,16 @@ export class RestService {
         });
     });
   }
+
+  getLoggedUser(data){
+    console.log(data)
+    return new Promise((resolve, reject) => {
+      this.http.put(this.apiUrl + '/login', data)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

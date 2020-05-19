@@ -11,16 +11,16 @@
       alt="Base64 encoded image"><br>
         <h1>{{postId.titulo}}</h1>
         <p>{{postId.contenido}}</p>
-        
+        <div *ngIf="isAdmin">
       <ion-button (click)="deletePost()">Delete</ion-button>
-      <ion-button [routerLink]="['/update-post', postId.id]">Update</ion-button>
+      <ion-button [routerLink]="['/update-post', postId.id]">Update</ion-button></div>
     </div>
 
-    <form>
-      <ion-item>
+    <form *ngIf="isLogged">
+      <!-- <ion-item>
         <ion-label>idUsuario</ion-label>
         <ion-input type="text"  name="id" id="idUsuario"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <h1>Comment</h1>
       <ion-item>

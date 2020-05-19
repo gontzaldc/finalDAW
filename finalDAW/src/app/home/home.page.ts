@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { IonSlides} from '@ionic/angular';
 
@@ -12,11 +12,12 @@ import { RestService } from '../services/rest.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   @ViewChild('mySlider', { static: true })  slides: IonSlides;
   users:any
   user = { name: "", email: ""}
+  isLogged:boolean=false
 
       swipeNext(){
         this.slides.slideNext();
@@ -26,6 +27,11 @@ export class HomePage {
       }
   constructor(private menu: MenuController, public restService: RestService) {
 
+  }
+  ngOnInit() {
+    if (sessionStorage.length>0){
+      this.isLogged=true
+    }
   }
 
   getUsers() {

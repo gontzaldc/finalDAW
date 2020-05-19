@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { RestService } from '../services/rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-post',
@@ -14,9 +15,11 @@ export class NewPostPage implements OnInit {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
 
-  post = { titulo: "", contenido: "", video: "" }
+  currentDate =new Date() 
 
-  constructor(public restService: RestService, private http: HttpClient) { }
+  post = { titulo: "", contenido: "", video: "", fechaC:new Date() }
+
+  constructor(public restService: RestService, private http: HttpClient,private router: Router) { }
 
   ngOnInit() {
   }
@@ -48,13 +51,17 @@ export class NewPostPage implements OnInit {
     this.post.titulo = ((document.getElementById("titulo") as HTMLInputElement).value)
     this.post.contenido = ((document.getElementById("content") as HTMLInputElement).value)
     this.post.video = this.previewUrl
+    this.post.fechaC=this.currentDate
     this.restService.addPost(this.post).then((result) => {
 
     }, (err) => {
       console.log(err);
+    })
+    
+
+    this.router.navigate(['/menu-fotos']).then(() => {
+      window.location.reload();
     });
-
-
 
 
 

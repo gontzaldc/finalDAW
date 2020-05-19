@@ -20,14 +20,18 @@
         <ion-title class="menu">
           |
         </ion-title>
-        <ion-title class="menu" [routerLink]="['/new-post']">
+        <ion-title *ngIf="isAdmin && isLogged"  class="menu" [routerLink]="['/new-post']">
           Añadir Post
         </ion-title>
         <ion-title class="menu">
           |
         </ion-title>
-        <ion-button color="dark" [routerLink]="['/home']">
-          <ion-icon color="primary" name="log-out-outline"></ion-icon>
+        <ion-button *ngIf="isLogged" (click)="logout()" color="dark" [routerLink]="['/home']">
+          <ion-icon  color="primary" name="log-out-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button *ngIf="!isLogged" color="dark" [routerLink]="['/login']">
+          <ion-icon  color="primary" name="log-in-outline"></ion-icon>
         </ion-button>
       </div>
     </ion-toolbar>

@@ -61,15 +61,16 @@ const getUsers = (request, response) => {
 
 
   const createPost = (request, response) => {
-    const { titulo, contenido, video } = request.body
-    pool.query('INSERT INTO POST(titulo, contenido, video) VALUES($1, $2,$3)', [ titulo, contenido, video ], (error, results) => {
+    const { titulo, contenido, video, fechacreacion } = request.body
+    console.log(fechacreacion)
+    pool.query('INSERT INTO POST(titulo, contenido, video, fecha_creacion) VALUES($1, $2,$3,$4)', [ titulo, contenido, video, fechacreacion ], (error, results) => {
      
       response.status(201).send(`Post Created`)
     })
   }
   const createComment = (request, response) => {
-    const { idUsuario, idPost, comentario } = request.body
-    pool.query('INSERT INTO comentarios(id_usuario, id_post, comentario) VALUES($1, $2,$3)', [ idUsuario, idPost, comentario ], (error, results) => {
+    const { idUsuario, idPost, comentario, fecha } = request.body
+    pool.query('INSERT INTO comentarios(id_usuario, id_post, comentario, fecha) VALUES($1, $2,$3, $4)', [ idUsuario, idPost, comentario, fecha ], (error, results) => {
      
       response.status(201).send(`Comment Created`)
     })
@@ -131,6 +132,18 @@ const getUsers = (request, response) => {
   }
 
 
+  const getloggedUser = (request, response) => {
+    const { username,password } = request.body
+    pool.query('SELECT id,username,role FROM users WHERE username = $1 and password= $2',[username,password],  (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+
+
   module.exports = {
     getUsers,
     getUserById,
@@ -142,4 +155,5 @@ const getUsers = (request, response) => {
     getPostById,
     createComment,
     getCommentsbyId,
+    getloggedUser
   }

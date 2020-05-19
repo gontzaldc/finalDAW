@@ -28,7 +28,11 @@ const routes: Routes = [
   {
     path: 'update-post/:id',
     loadChildren: () => import('./update-post/update-post.module').then( m => m.UpdatePostPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+
 
 
 
