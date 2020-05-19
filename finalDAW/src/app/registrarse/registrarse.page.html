@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <form class="contenido">
+    <h1>Nombre de usuario</h1>
+  <ion-item>
+    <ion-input type="text"  name="username" id="username"></ion-input>
+  </ion-item>
+  <h1>Contraseña</h1>
+<ion-item>
+  <ion-input type="password"  name="password" id="password"></ion-input>
+</ion-item>
+<h1>Repetir contraseña</h1>
+<ion-item>
+<ion-input type="password"  name="password2" id="password2"></ion-input>
+</ion-item>
+  <ion-button class="usuario" (click)="login()" ion-button type="submit" block>Crear cuenta</ion-button>
+</form>
+</ion-content>
