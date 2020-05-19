@@ -29,10 +29,12 @@
       <ion-button class="usuario" (click)="createComment()" ion-button type="submit" block>Add New Comment</ion-button>
     </form>
 
-    <div *ngFor="let comentario of comments">
-      <b>{{comentario.idUsuario}}</b>
+    <div id="comentarios" *ngFor="let comentario of comments">
+      <b>{{comentario.username}}</b>
       <p>{{comentario.comentario}}</p>
+      <p>{{comentario.fecha}}</p>
     </div>
+    
     <!-- <div class="galeria">
       <img src="https://www.wikipets.es/wp-content/uploads/sites/default/files/library/pastor-vasco-320x240.jpg"
         alt=""><br>

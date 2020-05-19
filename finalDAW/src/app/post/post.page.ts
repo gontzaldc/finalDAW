@@ -11,7 +11,7 @@ export class PostPage implements OnInit {
   post: any 
   id: string
   comments:any
-  comment = { idUsuario: "", idPost: "", comentario:"", fecha:new Date()}
+  comment = { idUsuario: "", idPost: "", comentario:"", fecha:new Date(), username:""}
   isLogged:boolean=false
   isAdmin:boolean=false
   userLogged:any
@@ -64,6 +64,7 @@ export class PostPage implements OnInit {
     this.comment.fecha=this.currentDate
     this.comment.idUsuario=this.userLogged[0]["id"]
     this.comment.idPost=this.id
+    this.comment.username=this.userLogged[0]["username"]
     this.comment.comentario=((document.getElementById("comentario")as HTMLInputElement).value)
     this.restService.saveComment(this.comment).then((result) => {
 

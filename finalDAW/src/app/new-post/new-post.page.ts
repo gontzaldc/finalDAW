@@ -17,6 +17,7 @@ export class NewPostPage implements OnInit {
 
   currentDate =new Date() 
 
+
   post = { titulo: "", contenido: "", video: "", fechaC:new Date() }
 
   constructor(public restService: RestService, private http: HttpClient,private router: Router) { }
@@ -52,6 +53,7 @@ export class NewPostPage implements OnInit {
     this.post.contenido = ((document.getElementById("content") as HTMLInputElement).value)
     this.post.video = this.previewUrl
     this.post.fechaC=this.currentDate
+    console.log(this.post)
     this.restService.addPost(this.post).then((result) => {
 
     }, (err) => {
@@ -59,9 +61,9 @@ export class NewPostPage implements OnInit {
     })
     
 
-    this.router.navigate(['/menu-fotos']).then(() => {
-      window.location.reload();
-    });
+    // this.router.navigate(['/menu-fotos']).then(() => {
+    //   window.location.reload();
+    // });
 
 
 

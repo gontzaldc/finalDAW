@@ -20,7 +20,7 @@ const getUsers = (request, response) => {
   }
 
   const getPost = (request, response) => {
-    pool.query('SELECT * FROM post', (error, results) => {
+    pool.query('SELECT * FROM post ', (error, results) => {
       if (error) {
         throw error
       }
@@ -61,16 +61,15 @@ const getUsers = (request, response) => {
 
 
   const createPost = (request, response) => {
-    const { titulo, contenido, video, fechacreacion } = request.body
-    console.log(fechacreacion)
-    pool.query('INSERT INTO POST(titulo, contenido, video, fecha_creacion) VALUES($1, $2,$3,$4)', [ titulo, contenido, video, fechacreacion ], (error, results) => {
+    const { titulo, contenido, video, fechaC } = request.body
+    pool.query('INSERT INTO POST(titulo, contenido, video, fecha_creacion) VALUES($1, $2,$3,$4)', [ titulo, contenido, video, fechaC ], (error, results) => {
      
       response.status(201).send(`Post Created`)
     })
   }
   const createComment = (request, response) => {
-    const { idUsuario, idPost, comentario, fecha } = request.body
-    pool.query('INSERT INTO comentarios(id_usuario, id_post, comentario, fecha) VALUES($1, $2,$3, $4)', [ idUsuario, idPost, comentario, fecha ], (error, results) => {
+    const { idUsuario, idPost, comentario, fecha, username } = request.body
+    pool.query('INSERT INTO comentarios(id_usuario, id_post, comentario, fecha, username) VALUES($1, $2,$3, $4, $5)', [ idUsuario, idPost, comentario, fecha , username], (error, results) => {
      
       response.status(201).send(`Comment Created`)
     })
