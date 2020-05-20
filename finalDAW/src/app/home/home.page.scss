@@ -38,9 +38,11 @@ ion-content ion-toolbar {
 
 #imagenes1{
   width: 99%;
+  height: 400px;
 }
 #imagenes2{
   width: 34%;
+  height: 400px;
 }
 .backBtn{
   position: absolute;
@@ -124,4 +126,47 @@ ion-list>ion-item>h1{
 }
 form{
   margin-top: 1%;
+}
+
+
+
+
+#rosa{
+  --width: 100%;
+  background-color: #474B4E;
+  color: white;
+}
+.card{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+}
+
+.izquierda{
+  text-align: right;
+  color:black
+}
+
+.imagen {
+  display: inline-block;
+  border-radius: 50%;
+  bottom: calc(-1*(80px + 4px));
+  border: 8px solid #585858da;
+  background-color: #f7f3f3;
+  width: 50%;
+  max-width:200px;
+}
+.imagen{
+  margin-right: 2%;
+}
+
+#texto{
+  display: inline-block;
+  
+}
+
+.contenido2{
+  margin-top:5%
+
 }

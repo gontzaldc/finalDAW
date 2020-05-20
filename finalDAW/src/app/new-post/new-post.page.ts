@@ -5,9 +5,7 @@ import { Router } from '@angular/router';
 
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
-import { MatDatepickerModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 import { empty } from 'rxjs';
-import { timingSafeEqual } from 'crypto';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
@@ -79,16 +77,17 @@ export class NewPostPage implements OnInit {
     }, (err) => {
       console.log(err);
     })
+
+    this.router.navigate(['/menu-fotos']).then(() => {
+      window.location.reload();
+    });
     
+}
 
-    // this.router.navigate(['/menu-fotos']).then(() => {
-    //   window.location.reload();
-    // });
-
+}
 
 
-
-    // const formData = new FormData();
+// const formData = new FormData();
     // formData.append('files', this.fileData);
      
     // this.fileUploadProgress = '0%';
@@ -108,6 +107,3 @@ export class NewPostPage implements OnInit {
     //   }
          
     // }) 
-}
-
-}

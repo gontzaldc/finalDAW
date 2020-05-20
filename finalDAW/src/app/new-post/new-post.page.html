@@ -4,22 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark">
+<ion-content >
   <form class="contenido">
     <h1>Titulo:</h1>
     <ion-item class="titulo">
-      <ion-input type="text" (ngModel)="post.titulo" name="titulo" id="titulo"></ion-input>
+      <ion-input type="text" (ngModel)="post.titulo" name="titulo" id="titulo" required></ion-input>
     </ion-item>
     <h1>Descripción:</h1>
     <ion-item class="textarea">
-      <ion-textarea (ngModel)="post.contenido" name="content" id="content" auto-grow></ion-textarea>
+      <ion-textarea (ngModel)="post.contenido" name="content" id="content" auto-grow required></ion-textarea>
     </ion-item>
     <h1>Programar fecha:</h1>
-    <ion-item color="dark">
+    <ion-item>
       <mat-form-field>
         <mat-label>Input & change events</mat-label>
         <input matInput [matDatepicker]="picker"
-               (dateChange)="addEvent('change', $event)">
+               (dateChange)="addEvent('change', $event)" required>
         <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -37,7 +37,7 @@
         <div class="col-md-6 offset-md-3">
           <h3>Choose File</h3>
           <div class="form-group">
-            <input #file type="file" id="file" name="image" (change)="fileProgress($event)" />
+            <input #file type="file" id="file" name="image" (change)="fileProgress($event)" required/>
           </div>
 
 

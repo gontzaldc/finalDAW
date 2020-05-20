@@ -8,14 +8,20 @@
         <ion-title class="menu">
           |
         </ion-title>
-        <ion-title class="menu" [routerLink]="['/menu-fotos']">
+        <ion-title class="menu" [routerLink]="['/galeria']">
           Galeria
         </ion-title>
         <ion-title class="menu">
           |
         </ion-title>
+        <ion-title class="menu" [routerLink]="['/menu-fotos']">
+          Blog
+        </ion-title>
+        <ion-title class="menu">
+          |
+        </ion-title>
         <ion-title class="menu" [routerLink]="['/informazioa']">
-          Información
+          Contacto
         </ion-title>
         <ion-title class="menu">
           |
@@ -37,10 +43,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-router-outlet>
-
-
-  </ion-router-outlet>
+  <ion-router-outlet> </ion-router-outlet>
   
+ <!-- Footer -->
+<footer class="page-footer font-small blue">
 
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </ion-app>

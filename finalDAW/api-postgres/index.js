@@ -14,7 +14,7 @@ const cors = require('cors');
 //   json: {limit: '50mb', extended: true},
 //   urlencoded: {limit: '50mb', extended: true}
 // }
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '50mb'}))
 
 app.use(
   bodyParser.urlencoded({
@@ -29,12 +29,14 @@ app.get('/', (request, response) => {
 
 app.get('/users', db.getUsers)
 app.get('/post', db.getPost)
+app.get('/galeria', db.getGaleria)
 app.get('/users/:id', db.getUserById)
 app.get('/post/:id', db.getPostById)
 app.get('/comment/:id', db.getCommentsbyId)
 app.put('/login', db.getloggedUser)
 app.post('/users', db.createUser)
 app.post('/post', db.createPost)
+app.post('/galeria', db.saveImage)
 app.post('/comment', db.createComment)
 app.put('/post/:id', db.updatePost)
 app.delete('/post/:id', db.deletePost)

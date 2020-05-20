@@ -4,13 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark">
+<ion-content >
   <div class="contenido">
     <div class="galeria" *ngFor="let post of posts" [routerLink]="['/post', post.id]">
       <img src="{{post.video}}"
       alt="Base64 encoded image"><br>
       <b>{{post.titulo}}</b>
-      <p>{{post.contenido}}</p>
     </div>
 
     <!-- <div class="galeria">

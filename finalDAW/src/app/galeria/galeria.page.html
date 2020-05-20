@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>galeria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="isLogged">
+
+  <div class="col-md-6 offset-md-3" *ngIf="isAdmin">
+    <h3>Choose File</h3>
+    <div class="form-group">
+      <input #file type="file" id="file" name="image" (change)="fileProgress($event)" required/>
+    </div>
+
+
+
+    <div *ngIf="fileUploadProgress">
+      Upload progress: {{ fileUploadProgress }}
+    </div>
+    <div class="image-preview mb-3" *ngIf="previewUrl">
+      <img [src]="previewUrl" height="300" />
+    </div>
+
+    <div class="mb-3" *ngIf="uploadedFilePath">
+      {{uploadedFilePath}}
+    </div>
+
+    <div class="form-group">
+      <ion-button class="btn btn-primary" (click)="onSubmit()">Submit</ion-button>
+    </div>
+
+
+
+  </div>
+  <div class="contenido">
+    <div class="galeria" *ngFor="let imagen of galeria" >
+      <img src="{{imagen.image}}"
+      alt="Base64 encoded image">
+    </div>
+    </div>
+</ion-content>
+
+<ion-content *ngIf="!isLogged">
+  <h2>Tienes que iniciar sesion para poder ver las imagenes<a color="tertiary" [routerLink]="['/login']">Iniciar sesion</a></h2>
+</ion-content>

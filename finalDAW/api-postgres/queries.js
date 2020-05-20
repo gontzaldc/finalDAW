@@ -5,10 +5,7 @@ const pool = new Pool({
   database: 'Oinatz',
   password: 'admin',
   port: 5433,
-  
 })
-
-
 
 const getUsers = (request, response) => {
     pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
@@ -21,6 +18,15 @@ const getUsers = (request, response) => {
 
   const getPost = (request, response) => {
     pool.query('SELECT * FROM post where fecha_creacion>= CURRENT_DATE', (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+  const getGaleria= (request, response) => {
+    pool.query('SELECT * FROM galeria', (error, results) => {
       if (error) {
         throw error
       }
@@ -52,17 +58,24 @@ const getUsers = (request, response) => {
   }
 
   const createUser = (request, response) => {
-    const { name, email } = request.body
-    pool.query('INSERT INTO users(name, email) VALUES($1, $2)', [name, email], (error, results) => {
+    const { username, password, role } = request.body
+    pool.query('INSERT INTO users(username, password, role) VALUES($1, $2, $3)', [username, password, role], (error, results) => {
      
       response.status(201).send(`User added `)
+    })
+  }
+
+  const saveImage = (request, response) => {
+    const { image} = request.body
+    pool.query('INSERT INTO galeria(image) VALUES($1)', [  image], (error, results) => {
+     
+      response.status(201).send(`Post Created`)
     })
   }
 
 
   const createPost = (request, response) => {
     const { titulo, contenido, video, fechaC ,fechaPublicar} = request.body
-    console.log(fechaPublicar)
     pool.query('INSERT INTO POST(titulo, contenido, video, fecha_creacion, fecha_publicacion) VALUES($1, $2,$3,$4, $5)', [ titulo, contenido, video, fechaC , fechaPublicar], (error, results) => {
      
       response.status(201).send(`Post Created`)
@@ -85,6 +98,8 @@ const getUsers = (request, response) => {
       response.status(200).json(results.rows)
     })
   }
+
+
   // function createUser(req, res, next) {
   //   req.body.age = parseInt(req.body.age);
   //   db.none('insert into users(name, email) values(${name}, ${email}',
@@ -155,5 +170,7 @@ const getUsers = (request, response) => {
     getPostById,
     createComment,
     getCommentsbyId,
-    getloggedUser
+    getloggedUser,
+    getGaleria,
+    saveImage
   }

@@ -35,6 +35,18 @@ export class RestService {
     });
   }
 
+  getGaleria() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/galeria').subscribe(data => {
+
+        resolve(data);
+      },
+        err => {
+          console.log(err);
+        });
+    });
+  }
+
   getPostById(id) {
 
     return new Promise(resolve => {
@@ -80,6 +92,18 @@ export class RestService {
       this.http.post(this.apiUrl + '/post', data)
         .subscribe(res => {
 
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  addImageToGalery(data) {
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + '/galeria', data)
+        .subscribe(res => {
           resolve(res);
         }, (err) => {
           reject(err);

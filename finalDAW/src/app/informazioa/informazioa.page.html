@@ -1,11 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Información</ion-title>
+    <ion-title>Contacto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark">
-  <div class="contenido">
+<ion-content>
+
+  <h3>Contactame</h3>
+
+<div class="container">
+  <form action="/action_page.php">
+    <label for="fname">Nombre</label>
+    <input type="text" id="fname" name="firstname">
+
+    <label for="lname">Apellido</label>
+    <input type="text" id="lname" name="lastname" >
+
+    <label for="country">Telefono</label>
+    <input type="text" id="lname" name="lastname">
+
+    <label for="subject">Mensaje</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+  <!-- <div class="contenido">
   <div id="rosa">
     <div class="card">
       <div class="header">
@@ -45,5 +65,5 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 </ion-content>
