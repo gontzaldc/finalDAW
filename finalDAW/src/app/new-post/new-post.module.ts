@@ -8,12 +8,15 @@ import { NewPostPageRoutingModule } from './new-post-routing.module';
 
 import { NewPostPage } from './new-post.page';
 
+import { MatDatepickerModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewPostPageRoutingModule
+    NewPostPageRoutingModule,MatInputModule,
+    MatDatepickerModule,MatNativeDateModule
   ],
   declarations: [NewPostPage]
 })

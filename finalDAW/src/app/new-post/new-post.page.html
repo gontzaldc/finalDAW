@@ -14,34 +14,56 @@
     <ion-item class="textarea">
       <ion-textarea (ngModel)="post.contenido" name="content" id="content" auto-grow></ion-textarea>
     </ion-item>
+    <h1>Programar fecha:</h1>
+    <ion-item color="dark">
+      <mat-form-field>
+        <mat-label>Input & change events</mat-label>
+        <input matInput [matDatepicker]="picker"
+               (dateChange)="addEvent('change', $event)">
+        <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+        <a *ngFor="let e of events"  hidden><ion-input value="{{e}}"></ion-input></a>
+      
+    </ion-item>
+    
     <!-- <ion-item>
       <ion-label>Video</ion-label>
       <ion-input type="text" (ngModel)="post.video" name="video" id="video"></ion-input>
     </ion-item> -->
     <div class="container">
       <div class="row">
-          <div class="col-md-6 offset-md-3">
-              <h3>Choose File</h3>            
-              <div class="form-group">
-                  <input #file type="file" id="file" name="image" (change)="fileProgress($event)" />
-              </div>
-              <div *ngIf="fileUploadProgress">
-                  Upload progress: {{ fileUploadProgress }}
-              </div>
-              <div class="image-preview mb-3" *ngIf="previewUrl">
-                  <img [src]="previewUrl" height="300" />                 
-              </div>
-   
-              <div class="mb-3" *ngIf="uploadedFilePath">
-                  {{uploadedFilePath}}
-              </div>
-               
-              <div class="form-group">
-                  <ion-button class="btn btn-primary"  (click)="onSubmit()">Submit</ion-button>
-              </div>
+        <div class="col-md-6 offset-md-3">
+          <h3>Choose File</h3>
+          <div class="form-group">
+            <input #file type="file" id="file" name="image" (change)="fileProgress($event)" />
           </div>
+
+
+
+          <div *ngIf="fileUploadProgress">
+            Upload progress: {{ fileUploadProgress }}
+          </div>
+          <div class="image-preview mb-3" *ngIf="previewUrl">
+            <img [src]="previewUrl" height="300" />
+          </div>
+
+          <div class="mb-3" *ngIf="uploadedFilePath">
+            {{uploadedFilePath}}
+          </div>
+
+
+
+          <div class="form-group">
+            <ion-button class="btn btn-primary" (click)="onSubmit()">Submit</ion-button>
+          </div>
+
+
+
+        </div>
       </div>
-  </div>
+    </div>
     <!-- <button class="usuario"  ion-button type="submit" block>Add New Post</button> -->
-  </form> 
+  </form>
 </ion-content>

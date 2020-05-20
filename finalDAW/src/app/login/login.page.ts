@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
       sessionStorage.clear();
       let key = 'logged User';
       sessionStorage.setItem(key, JSON.stringify(data));
+      console.log("logged in")
       this.router.navigate(['/']).then(() => {
         window.location.reload();
       });

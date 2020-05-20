@@ -3,6 +3,11 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { RestService } from '../services/rest.service';
 import { Router } from '@angular/router';
 
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+
+import { MatDatepickerModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+import { empty } from 'rxjs';
+import { timingSafeEqual } from 'crypto';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
@@ -10,17 +15,31 @@ import { Router } from '@angular/router';
 })
 export class NewPostPage implements OnInit {
 
+  
+  events: string[] = [];
+  postingData:string
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.events.shift();
+    this.events.push(`${event.value}`);
+    this.postingData=this.events[0]
+  }
+
   fileData: File = null;
   previewUrl: any = null;
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
 
+  minDate: Date;
   currentDate =new Date() 
 
 
-  post = { titulo: "", contenido: "", video: "", fechaC:new Date() }
+  post = { titulo: "", contenido: "", video: "", fechaC:new Date(), fechaPublicar:new Date() }
 
-  constructor(public restService: RestService, private http: HttpClient,private router: Router) { }
+  constructor(public restService: RestService, private http: HttpClient,private router: Router) { 
+
+    this.minDate = new Date();
+  }
 
   ngOnInit() {
   }
@@ -53,7 +72,8 @@ export class NewPostPage implements OnInit {
     this.post.contenido = ((document.getElementById("content") as HTMLInputElement).value)
     this.post.video = this.previewUrl
     this.post.fechaC=this.currentDate
-    console.log(this.post)
+    let postData=new Date(this.postingData) 
+    console.log(postData)
     this.restService.addPost(this.post).then((result) => {
 
     }, (err) => {

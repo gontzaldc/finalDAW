@@ -13,11 +13,15 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { DatePipe } from '@angular/common';
 
+import { MatDatepickerModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,  ], 
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, MatInputModule,
+    MatDatepickerModule, BrowserAnimationsModule,MatNativeDateModule], 
   providers: [
     StatusBar,
     SplashScreen,

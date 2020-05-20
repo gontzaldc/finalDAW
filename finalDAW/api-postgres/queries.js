@@ -20,7 +20,7 @@ const getUsers = (request, response) => {
   }
 
   const getPost = (request, response) => {
-    pool.query('SELECT * FROM post ', (error, results) => {
+    pool.query('SELECT * FROM post where fecha_creacion>= CURRENT_DATE', (error, results) => {
       if (error) {
         throw error
       }
@@ -61,8 +61,9 @@ const getUsers = (request, response) => {
 
 
   const createPost = (request, response) => {
-    const { titulo, contenido, video, fechaC } = request.body
-    pool.query('INSERT INTO POST(titulo, contenido, video, fecha_creacion) VALUES($1, $2,$3,$4)', [ titulo, contenido, video, fechaC ], (error, results) => {
+    const { titulo, contenido, video, fechaC ,fechaPublicar} = request.body
+    console.log(fechaPublicar)
+    pool.query('INSERT INTO POST(titulo, contenido, video, fecha_creacion, fecha_publicacion) VALUES($1, $2,$3,$4, $5)', [ titulo, contenido, video, fechaC , fechaPublicar], (error, results) => {
      
       response.status(201).send(`Post Created`)
     })
