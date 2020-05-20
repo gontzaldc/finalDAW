@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title class="titulo" [routerLink]="['/home']">
-        Oinatz
+        <img class="logo" src="../assets/icon/logo.png">
       </ion-title>
       <div class="right">
         <ion-title class="menu">
@@ -32,6 +32,7 @@
         <ion-title *ngIf="isAdmin && isLogged" class="menu">
           |
         </ion-title>
+      </div>
         <ion-button *ngIf="isLogged" (click)="logout()" color="dark" [routerLink]="['/home']">
           <ion-icon  color="primary" name="log-out-outline"></ion-icon>
         </ion-button>
@@ -39,21 +40,21 @@
         <ion-button *ngIf="!isLogged" color="dark" [routerLink]="['/login']">
           <ion-icon  color="primary" name="log-in-outline"></ion-icon>
         </ion-button>
-      </div>
     </ion-toolbar>
   </ion-header>
 
   <ion-router-outlet> </ion-router-outlet>
   
  <!-- Footer -->
-<footer class="page-footer font-small blue">
+<ion-footer class="page-footer">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    <a href="https://www.instagram.com/oinatz_huella/"><ion-icon name="logo-instagram"></ion-icon></a>
+    <a href="https://www.facebook.com/Oinatz-814046152291080"><ion-icon name="logo-facebook"></ion-icon></a>
   </div>
   <!-- Copyright -->
 
-</footer>
+</ion-footer>
 <!-- Footer -->
 </ion-app>
