@@ -10,42 +10,46 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  logUser = { username: "",password:""}
+  logUser = { username: "", password: "" }
   //user = { username: "", password: "",role:""}
-  user:any
+  user: any
 
-  constructor(public restService: RestService,private router: Router) { }
+  constructor(public restService: RestService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  login(){
-    this.logUser.username=((document.getElementById("username")as HTMLInputElement).value)
-    this.logUser.password=((document.getElementById("password")as HTMLInputElement).value)
-    this.restService.getLoggedUser(this.logUser)
-    .then(data => {
-    this.user=data
-    
-    console.log(this.user)
-    
+  login() {
+    this.logUser.username = ((document.getElementById("username") as HTMLInputElement).value)
+    this.logUser.password = ((document.getElementById("password") as HTMLInputElement).value)
+    if (this.logUser.username == "") {
+      alert("El usuario es obligatorio")
+    }
+    if (this.logUser.password == "") {
+      alert("Falta la contraseña")
+    }
+    else {
+      this.restService.getLoggedUser(this.logUser)
+        .then(data => {
+          this.user = data
 
-    if (Object.keys(data).length==0){
-      console.log("username or password incorrect")
+          console.log(this.user)
+
+          if (Object.keys(data).length == 0) {
+            console.log("username or password incorrect")
+          }
+          else if (Object.keys(data).length == 1) {
+            sessionStorage.clear();
+            let key = 'logged User';
+            sessionStorage.setItem(key, JSON.stringify(data));
+            this.router.navigate(['/']).then(() => {
+              window.location.reload();
+            });
+          }
+        });
     }
-    else if (Object.keys(data).length==1)
-    {
-      sessionStorage.clear();
-      let key = 'logged User';
-      sessionStorage.setItem(key, JSON.stringify(data));
-      console.log("logged in")
-      this.router.navigate(['/']).then(() => {
-        window.location.reload();
-      });
-    }
-    });
-    
   }
 
-  
+
 
 }

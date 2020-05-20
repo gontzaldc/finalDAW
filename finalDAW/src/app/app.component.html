@@ -23,7 +23,7 @@
         <ion-title *ngIf="isAdmin && isLogged"  class="menu" [routerLink]="['/new-post']">
           Añadir Post
         </ion-title>
-        <ion-title class="menu">
+        <ion-title *ngIf="isAdmin && isLogged" class="menu">
           |
         </ion-title>
         <ion-button *ngIf="isLogged" (click)="logout()" color="dark" [routerLink]="['/home']">
