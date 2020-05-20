@@ -15,7 +15,6 @@
       <ion-button (click)="deletePost()">Delete</ion-button>
       <ion-button [routerLink]="['/update-post', postId.id]">Update</ion-button></div>
     </div>
-
     <form *ngIf="isLogged">
       <!-- <ion-item>
         <ion-label>idUsuario</ion-label>
@@ -28,6 +27,9 @@
       </ion-item>
       <ion-button class="usuario" (click)="createComment()" ion-button type="submit" block>Add New Comment</ion-button>
     </form>
+    <b *ngIf="!isLogged">
+      <h2>Tienes que iniciar sesion para poder comentar<a color="tertiary" [routerLink]="['/login']">Iniciar sesion</a></h2>
+    </b>
 
     <div id="comentarios" *ngFor="let comentario of comments">
       <b>{{comentario.username}}</b>

@@ -33,10 +33,8 @@ export class LoginPage implements OnInit {
         .then(data => {
           this.user = data
 
-          console.log(this.user)
-
           if (Object.keys(data).length == 0) {
-            console.log("username or password incorrect")
+            alert("username or password incorrect")
           }
           else if (Object.keys(data).length == 1) {
             sessionStorage.clear();

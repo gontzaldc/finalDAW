@@ -18,7 +18,7 @@
     <ion-item>
       <mat-form-field>
         <mat-label>Input & change events</mat-label>
-        <input matInput [matDatepicker]="picker"
+        <input matInput [min]="minDate" [matDatepicker]="picker"
                (dateChange)="addEvent('change', $event)" required>
         <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -37,7 +37,7 @@
         <div class="col-md-6 offset-md-3">
           <h3>Choose File</h3>
           <div class="form-group">
-            <input #file type="file" id="file" name="image" (change)="fileProgress($event)" required/>
+            <input #file type="file" id="file"  name="image" (change)="fileProgress($event)" required/>
           </div>
 
 

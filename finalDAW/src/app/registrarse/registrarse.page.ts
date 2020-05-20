@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RestService } from '../services/rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrarse',
@@ -12,7 +13,7 @@ export class RegistrarsePage implements OnInit {
   username:string
   password:string
   password2:string
-  constructor(public restService: RestService) { }
+  constructor(public restService: RestService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -40,6 +41,10 @@ export class RegistrarsePage implements OnInit {
       }, (err) => {
         console.log(err);
       })
+
+      this.router.navigate(['/login']).then(() => {
+        window.location.reload();
+      });
     }
     // if (this.logUser.password ('((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})')) {
     //   alert("La contraseña debe tener entre 8 y 30 letras, contener mayusculas, minusculas, signos y numeros")
