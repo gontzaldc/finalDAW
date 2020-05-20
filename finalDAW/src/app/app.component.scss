@@ -10,7 +10,9 @@ ion-title{
 ion-button{
     --width: fit-content;
     display: inline-block;
-    margin-top: -3%;
+    margin-top: -0%;
+    float: right;
+    margin-right: 20%;
 }
 
 .menu{
@@ -19,4 +21,13 @@ ion-button{
 
 .right{
     display: inline-block;
+}
+.logo{
+    position: absolute;
+    margin-top: -70%;
+}
+ion-footer{
+    background-color: black;
+    color: white;
+    text-align: center;
 }
