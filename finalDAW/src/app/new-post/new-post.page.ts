@@ -71,7 +71,7 @@ export class NewPostPage implements OnInit {
     this.post.video = this.previewUrl
     this.post.fechaC=this.currentDate
     let postData=new Date(this.postingData) 
-    console.log(postData)
+    this.post.fechaPublicar=postData
     this.restService.addPost(this.post).then((result) => {
 
     }, (err) => {
